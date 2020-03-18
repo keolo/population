@@ -33,11 +33,10 @@ func main() {
 func showMetroStatHandler(w http.ResponseWriter, r *http.Request, db *bolt.DB) {
 	log.Print("received request")
 	zip := r.URL.Path[1:]
-	fmt.Fprint(w, "zip:", zip)
 
 	// Retrieve population data for a given zip code.
 	val := fetch(zip, db)
-	fmt.Println(string(val))
+	fmt.Fprint(w, string(val))
 }
 
 // setupDB opens a database connection.
@@ -46,7 +45,7 @@ func setupDB() (*bolt.DB, error) {
 	if err != nil {
 		return nil, fmt.Errorf("could not open db, %v", err)
 	}
-	fmt.Println("DB Setup Done")
+	fmt.Println("db setup done")
 	return db, nil
 }
 
@@ -59,7 +58,7 @@ func fetch(zip string, db *bolt.DB) []byte {
 	key := []byte(zip)
 	var val []byte
 
-	fmt.Println("Looking up key:", string(key))
+	fmt.Println("looking up key:", string(key))
 
 	err := db.View(func(tx *bolt.Tx) error {
 		bucket := tx.Bucket(bucketName)

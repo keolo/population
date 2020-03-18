@@ -1,17 +1,13 @@
-# PeerStreet Coding Challenge
-
-## Intro
-
-Hi! Thanks for applying at PeerStreet and taking the time to take on this coding challenge. We believe it’s very important to evaluate every candidate’s technical ability, but we also want to simulate a realistic challenge and environment you may encounter at our office. Optimizing algorithms on a whiteboard under a time constraint isn’t usually the case. As such, we’d like to give you an opportunity to work at your own pace on a problem that is actually relevant to PeerStreet and then discuss your solution during the onsite.
+# Population Growth Coding Challenge
 
 ## Overview
 
-The use of publicly available data is crucial in helping PeerStreet make better decisions when underwriting real estate loans as well as complying with the requirements of some of our partners. In this project, you will use the US Government’s HUD & Census data to build a small API for retrieving population growth based on a zip code.
+The use of publicly available data is crucial in helping make better decisions when underwriting real estate loans as well as complying with the requirements of some of our partners. In this project, you will use the US Government’s HUD & Census data to build a small API for retrieving population growth based on a zip code.
 
 ## Input Data
 
-1. [Zip to CBSA (csv)](https://s3.amazonaws.com/peerstreet-static/engineering/zip_to_msa/zip_to_cbsa.csv)
-1. [CBSA to MSA (csv)](https://s3.amazonaws.com/peerstreet-static/engineering/zip_to_msa/cbsa_to_msa.csv)
+1. [Zip to CBSA (csv)](db/zip_to_cbsa.csv)
+1. [CBSA to MSA (csv)](db/cbsa_to_msa.csv)
 
 ## Examples
 
@@ -118,7 +114,7 @@ To accomplish this project you will have to write code to:
 1. Deliver the output via an API
 1. Retrieve the output via a Ruby client
 
-As your deliverable to PeerStreet, please provide:
+As your deliverable, please provide:
 
 1. All code that you produced uploaded to this repo
 1. Publicly accessible endpoint to the API
