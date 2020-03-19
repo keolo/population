@@ -1,6 +1,6 @@
 # System Architecture
 
-* Assuming that population stats don't change very often, this solution is optimized for a read heavy usecase
+* Assuming that population stats don't change very often, this solution is optimized for a low-write/high-read usecase
 * Extract and transform data during import process
 * Embeded storage is used for fast access, edge computing, offline access, etc.
 * Data updates can be scheduled or triggered on a recurring basis

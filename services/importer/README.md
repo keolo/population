@@ -7,6 +7,13 @@
 * Retrieve population estimates
 * Store population metadata for each zip in BoltDB
 
+## Benefits
+
+* Fast (~2s on development machine)
+* Low Utilization and Operational Cost
+  * Because this importer is so efficient, we can run it often at a low cost
+* Maintainable
+
 ## Local Development
 
 * `cd` to this directory
