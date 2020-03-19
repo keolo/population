@@ -43,8 +43,8 @@ func main() {
 	defer db.Close()
 
 	// Load CSV files into memory.
-	cbsaToMSA := cbsaToMSA()
-	zipToCBSA := zipToCBSA()
+	cbsaToMSA := loadCSV("db/cbsa_to_msa.csv")
+	zipToCBSA := loadCSV("db/zip_to_cbsa.csv")
 
 	var wg sync.WaitGroup
 
@@ -102,24 +102,8 @@ func processMetroStat(
 	updateMetroStat(db, ms)
 }
 
-func zipToCBSA() [][]string {
-	in, err := os.Open("db/zip_to_cbsa.csv")
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	r := csv.NewReader(in)
-
-	records, err := r.ReadAll()
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	return records
-}
-
-func cbsaToMSA() [][]string {
-	in, err := os.Open("db/cbsa_to_msa.csv")
+func loadCSV(filePath string) [][]string {
+	in, err := os.Open(filePath)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -160,16 +144,6 @@ func setupDB() (*bolt.DB, error) {
 	)
 	if err != nil {
 		return nil, fmt.Errorf("could not open db, %v", err)
-	}
-	err = db.Update(func(tx *bolt.Tx) error {
-		_, err := tx.CreateBucketIfNotExists([]byte("MetroStat"))
-		if err != nil {
-			return fmt.Errorf("could not create MetroStat bucket: %v", err)
-		}
-		return nil
-	})
-	if err != nil {
-		return nil, fmt.Errorf("could not set up buckets, %v", err)
 	}
 	log.Print("db setup done")
 	return db, nil
