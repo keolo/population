@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"log"
 	"net/http"
@@ -10,6 +11,14 @@ import (
 	"github.com/gorilla/mux"
 	bolt "go.etcd.io/bbolt"
 )
+
+type metroStat struct {
+	ZIP        string `json:"zip"`
+	CBSA       string `json:"cbsa"`
+	MSAName    string `json:"msaName"`
+	PopEst2014 string `json:"popEst2014"`
+	PopEst2015 string `json:"popEst2015"`
+}
 
 func main() {
 	// Set up database connection.
@@ -93,8 +102,18 @@ func fetch(zip string, db *bolt.DB) []byte {
 		log.Fatal(err)
 	}
 
+	// Check if we found a value.
 	if len(val) == 0 {
-		val = []byte("Empty!")
+		// Create a blank metroStat with zip and default cbsa.
+		ms := metroStat{
+			ZIP:  zip,
+			CBSA: "99999",
+		}
+		j, err := json.Marshal(ms)
+		if err != nil {
+			fmt.Println("could not marshal entry json: %v", err)
+		}
+		val = []byte(j)
 	} else {
 		val = val
 	}
