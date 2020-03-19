@@ -63,12 +63,8 @@ func main() {
 	wg.Wait()
 }
 
-// processMetroStat is the ETL process for processing population statisctics
-// for a gien zip code.
-// * Find CBSA from Zip
-// * Check for alternate CBSA
-// * Retrieve population estimates
-// * Persist in embeded datastore
+// processMetroStat is the ETL process for processing population data for a
+// given zip code.
 func processMetroStat(
 	row []string,
 	cbsaToMSA [][]string,
@@ -100,6 +96,7 @@ func processMetroStat(
 		ms.PopEst2015 = metadata[POPESTIMATE2015]
 	}
 
+	// Persist to database.
 	updateMetroStat(db, ms)
 }
 
@@ -133,15 +130,6 @@ func cbsaToMSA() [][]string {
 	}
 
 	return records
-}
-
-func find(records [][]string, val string, col int) []string {
-	for _, row := range records {
-		if row[col] == val {
-			return row
-		}
-	}
-	return []string{}
 }
 
 func findAlternateCBSA(records [][]string, cbsa string) string {
