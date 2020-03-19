@@ -63,12 +63,18 @@ func main() {
 	wg.Wait()
 }
 
-// processMetroStat is the ETL process for processing population statisctics for a gien zip code.
+// processMetroStat is the ETL process for processing population statisctics
+// for a gien zip code.
 // * Find CBSA from Zip
 // * Check for alternate CBSA
 // * Retrieve population estimates
 // * Persist in embeded datastore
-func processMetroStat(row []string, cbsaToMSA [][]string, db *bolt.DB, wg *sync.WaitGroup) {
+func processMetroStat(
+	row []string,
+	cbsaToMSA [][]string,
+	db *bolt.DB,
+	wg *sync.WaitGroup,
+) {
 	defer wg.Done()
 
 	// Populate struct.
@@ -157,7 +163,11 @@ func findMetadata(records [][]string, cbsa string) []string {
 }
 
 func setupDB() (*bolt.DB, error) {
-	db, err := bolt.Open("../server/population.db", 0600, &bolt.Options{Timeout: 1 * time.Second})
+	db, err := bolt.Open(
+		"../server/population.db",
+		0600,
+		&bolt.Options{Timeout: 1 * time.Second},
+	)
 	if err != nil {
 		return nil, fmt.Errorf("could not open db, %v", err)
 	}
