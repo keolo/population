@@ -1,12 +1,17 @@
 # Population Service
 
-## Service URL
-
-https://server-7y3morjijq-uw.a.run.app/zip/10001
-
 ## Project
 
-* [Specifications](docs/specification.md)
+### Problem
+
+* Process population data so that we can retrieve population growth for a given zip code
+* [Specification](docs/specification.md)
+
+### Solution
+
+* Create an Importer service to Extract, Transform, and Load population data
+* Create a Server service to retrieve population metadata for a given zip code
+* Create a Client service to consume population service
 * [Architecture](docs/architecture.md)
 
 ## Services
@@ -15,9 +20,11 @@ https://server-7y3morjijq-uw.a.run.app/zip/10001
 
 __Average Import Time (on my macbook pro): ~2s__
 
-Importer is a Go service is used to concurrently extract, transform, and load data from two csv
+[Importer](services/importer) is a Go service is used to concurrently extract, transform, and load data from two csv
 datasources (cbsa_to_msa.csv and zip_to_cbsa.csv) into an embeded key-value
 store (BoltDB) for later retrival.
+
+I wrote an originial brute force implementation in ruby which took around 30 minutes. I then optimized the performance by using Golang with concurrency to take the runtime to around 2 seconds on my MacBook Pro.
 
 The importer retrieves and shapes the data into the following pseudo-structure:
 
@@ -45,7 +52,7 @@ The importer retrieves and shapes the data into the following pseudo-structure:
 
 __Average Response Time: ~4ms__
 
-Server is an HTTP service written in Go. It retrieves population growth
+[Server](services/server) is an HTTP service written in Go. It retrieves population growth
 metadata for a given zip and responds to the following endpoint:
 
 `GET /zip/{zip}`
