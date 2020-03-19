@@ -9,9 +9,11 @@
 
 ### Solution
 
+Importer -> Server <- Client
+
 * Create an Importer service to Extract, Transform, and Load population data
 * Create a Server service to retrieve population metadata for a given zip code
-* Create a Client service to consume population service
+* Create a Client service to consume population service API
 * [Architecture](docs/architecture.md)
 
 ## Services
