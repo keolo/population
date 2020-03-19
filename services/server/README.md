@@ -4,6 +4,10 @@
 
 * BoltDB used as an embeded key-value store
 
+## Development
+
+* `go mod tidy`
+
 ## Deployment
 
 Build container image.

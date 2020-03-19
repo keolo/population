@@ -1,4 +1,4 @@
-# Population Growth Coding Challenge
+# Population Growth API Specification
 
 ## Overview
 
