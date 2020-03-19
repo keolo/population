@@ -2,11 +2,12 @@
 
 * Assuming that population stats don't change very often, this solution is optimized for a read heavy usecase
 * Extract and transform data during import process
-* In-memory storage and/or caching at the API layer could be used for fast access
+* Embeded storage can be used for fast access, edge computing, offline access, etc.
 
 ## Hosting
 
-* Heroku
+* Google Cloud Run
+* Google Cloud Build
 
 ## Services
 
@@ -14,11 +15,11 @@
   * cbsa(zip)
   * msa(cbsa)
   * metadata(msa)
-* API
-  * GET /metro_stats/:zip
-  * metro_stats(zip)
+* Server
+  * GET /zip/{zip}
+  * processMetroStat(zip)
 * Client
-  * GET /metro_stats/:zip
+  * GET /zip/{zip}
 
 ## Models
 
@@ -31,15 +32,8 @@
 ## Stack
 
 * Frontend
-  * Ruby client
-* Backend
   * Ruby
-  * Rails API
-  * Rspec
+* Backend
+  * Golang
 * Storage
-  * Postgres
-
-## TODO
-
-* Create rake task to trigger import of csv files
-* Import CSVs to database tables
+  * BoltDB

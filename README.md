@@ -2,14 +2,16 @@
 
 ## Project
 
-* Specifications
-* Architecture
+* [Specifications](docs/specification.md)
+* [Architecture](docs/architecture.md)
 
 ## Services
 
 ### Importer
 
-Importer is a Go service is used to extract, transform, and load data from two csv
+__Average Import Time (on MBP): ~2s__
+
+Importer is a Go service is used to concurrently extract, transform, and load data from two csv
 datasources (cbsa_to_msa.csv and zip_to_cbsa.csv) into an embeded key-value
 store (BoltDB) for later retrival.
 
@@ -37,6 +39,8 @@ The importer retrieves and shapes the data into the following pseudo-structure:
 
 ### Server
 
+__Average Response Time: ~4ms__
+
 Server is an HTTP service written in Go. It retrieves population growth
 metadata for a given zip and responds to the following endpoint:
 
@@ -54,3 +58,6 @@ API.
 It can be invoked via:
 
 `ruby main.rb 90065`
+
+[Mixpanel::Client](https://github.com/keolo/mixpanel_client) is an even more
+robust example of an API client that I've written in Ruby.
