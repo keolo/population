@@ -7,6 +7,7 @@ import (
 	"os"
 	"time"
 
+	"github.com/gorilla/mux"
 	bolt "go.etcd.io/bbolt"
 )
 
@@ -18,30 +19,50 @@ func main() {
 	}
 	defer db.Close()
 
-	// Start server.
-	log.Print("server started")
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+	// Configure router.
+	router := mux.NewRouter()
+	router.HandleFunc("/", homeHandler)
+	router.HandleFunc("/zip/{zip}", func(w http.ResponseWriter, r *http.Request) {
 		showMetroStatHandler(w, r, db)
 	})
+
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "8080"
 	}
-	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%s", port), nil))
+
+	// Start server.
+	srv := &http.Server{
+		Handler: router,
+		Addr:    fmt.Sprintf("0.0.0.0:%s", port),
+		// Good practice: enforce timeouts for servers you create!
+		WriteTimeout: 15 * time.Second,
+		ReadTimeout:  15 * time.Second,
+	}
+	log.Print("server started")
+	log.Fatal(srv.ListenAndServe())
+}
+
+func homeHandler(w http.ResponseWriter, r *http.Request) {
+	log.Print("received request for /")
+	w.WriteHeader(http.StatusOK)
+	fmt.Fprintf(w, "200 Ok")
 }
 
 func showMetroStatHandler(w http.ResponseWriter, r *http.Request, db *bolt.DB) {
-	log.Print("received request")
-	zip := r.URL.Path[1:]
+	log.Print("received request for /zip")
 
-	// Retrieve population data for a given zip code.
+	vars := mux.Vars(r)
+	zip := vars["zip"]
+
+	// // Retrieve population data for a given zip code.
 	val := fetch(zip, db)
 	fmt.Fprint(w, string(val))
 }
 
 // setupDB opens a database connection.
 func setupDB() (*bolt.DB, error) {
-	db, err := bolt.Open("services/server/population.db", 0600, &bolt.Options{Timeout: 1 * time.Second})
+	db, err := bolt.Open("population.db", 0600, &bolt.Options{Timeout: 1 * time.Second})
 	if err != nil {
 		return nil, fmt.Errorf("could not open db, %v", err)
 	}

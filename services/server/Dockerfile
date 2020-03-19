@@ -27,7 +27,9 @@ RUN apk add --no-cache ca-certificates
 COPY --from=builder /app/server /server
 
 # Copy bolt database to container image.
-COPY population.db ./db
+COPY population.db ./
+
+RUN ls -la
 
 # Run the web service on container startup.
 CMD ["/server"]
