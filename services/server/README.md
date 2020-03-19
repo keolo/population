@@ -2,9 +2,17 @@
 
 ## Functionality
 
-* BoltDB used as an embeded key-value store
+* BoltDB used as a high performance embeded key-value store
 * Database keys are zip codes and values are JSON encoded objects
 * Database is embeded in container image during build
+
+## Benefits
+
+* Scaleable
+* Portable
+* Maintainable
+* Secure
+* Low Utilization and Operational Cost
 
 ## Local Development
 
@@ -23,3 +31,4 @@
 
 * Add tests
 * Optimize Docker image by using `scratch` instead of `alpine`
+* Add CI/CD
