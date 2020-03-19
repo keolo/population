@@ -1,5 +1,7 @@
 # Population Service
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/bd189711b340c16cddce/maintainability)](https://codeclimate.com/github/keolo/population/maintainability)
+
 ## Project
 
 ### Problem
