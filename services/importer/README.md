@@ -1,6 +1,6 @@
 # Importer
 
-## Steps
+## Usage
 
 * Download csv files to db directory
 * `go run main.go`
