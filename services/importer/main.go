@@ -169,7 +169,7 @@ func findMetadata(records [][]string, cbsa string) []string {
 }
 
 func setupDB() (*bolt.DB, error) {
-	db, err := bolt.Open("services/server/population.db", 0600, &bolt.Options{Timeout: 1 * time.Second})
+	db, err := bolt.Open("../server/population.db", 0600, &bolt.Options{Timeout: 1 * time.Second})
 	if err != nil {
 		return nil, fmt.Errorf("could not open db, %v", err)
 	}
