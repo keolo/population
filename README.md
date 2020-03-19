@@ -13,7 +13,7 @@ Importer -> Server <- Client
 
 * Create an Importer service to Extract, Transform, and Load population data
 * Create a Server service to retrieve population metadata for a given zip code
-* Create a Client service to consume population service API
+* Create a Client service to consume Server API
 * [Architecture](docs/architecture.md)
 
 ## Services
@@ -52,7 +52,7 @@ The importer persists data in the following schema:
 
 ### Server
 
-__Average Response Time: ~4ms__
+__Average Request Processing Time: ~5ms__
 
 [Server](services/server) is an HTTP service written in Go. It retrieves population growth
 metadata for a given zip and responds to the following endpoint:
