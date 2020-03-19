@@ -28,6 +28,9 @@ store (BoltDB) for later retrival.
 
 I wrote an originial brute force implementation in ruby which took around 30 minutes in runtime. I then optimized the performance by using Golang with concurrency to take the runtime to around 2 seconds on my MacBook Pro.
 
+The Importer service crunches through 40k+ zip codes and retrieves the
+correct population metadata for each.
+
 The import process results in a BoltDB database file size of only about 8MB.
 
 The importer persists data in the following schema:
