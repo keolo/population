@@ -1,5 +1,6 @@
 # Client
 
-## Usage
+## Local Development
 
-`ruby main.rb 90065`
+* Ensure [Server](../server/README.md) is running
+* `ruby main.rb 90065`

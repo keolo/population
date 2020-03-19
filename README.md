@@ -1,4 +1,8 @@
-# README
+# Population Service
+
+## Service URL
+
+https://server-7y3morjijq-uw.a.run.app/zip/10001
 
 ## Project
 
@@ -9,7 +13,7 @@
 
 ### Importer
 
-__Average Import Time (on MBP): ~2s__
+__Average Import Time (on my macbook pro): ~2s__
 
 Importer is a Go service is used to concurrently extract, transform, and load data from two csv
 datasources (cbsa_to_msa.csv and zip_to_cbsa.csv) into an embeded key-value
