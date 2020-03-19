@@ -61,6 +61,8 @@ func main() {
 	}
 
 	wg.Wait()
+
+	log.Print("data imported successfully")
 }
 
 // processMetroStat is the ETL process for processing population data for a
@@ -169,7 +171,7 @@ func setupDB() (*bolt.DB, error) {
 	if err != nil {
 		return nil, fmt.Errorf("could not set up buckets, %v", err)
 	}
-	fmt.Println("DB Setup Done")
+	log.Print("db setup done")
 	return db, nil
 }
 
