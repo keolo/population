@@ -46,11 +46,6 @@ func main() {
 	cbsaToMSA := cbsaToMSA()
 	zipToCBSA := zipToCBSA()
 
-	// var altCBSA string
-	// var metadata []string
-	// var metroStats []metroStat
-	// var ms metroStat
-
 	var wg sync.WaitGroup
 
 	// Loop through each zip.
@@ -66,9 +61,6 @@ func main() {
 	}
 
 	wg.Wait()
-
-	// Write to database.
-	// spew.Dump(metroStats)
 }
 
 // processMetroStat is the ETL process for processing population statisctics for a gien zip code.
@@ -102,11 +94,7 @@ func processMetroStat(row []string, cbsaToMSA [][]string, db *bolt.DB, wg *sync.
 		ms.PopEst2015 = metadata[POPESTIMATE2015]
 	}
 
-	// metroStats = append(metroStats, ms)
-
 	updateMetroStat(db, ms)
-
-	// fmt.Println(ms)
 }
 
 func zipToCBSA() [][]string {
@@ -196,9 +184,7 @@ func updateMetroStat(db *bolt.DB, ms metroStat) {
 		fmt.Println("could not marshal entry json: %v", err)
 	}
 
-	// fmt.Println(value)
-
-	// store some data
+	// Store the metadata for the given zip/key.
 	err = db.Batch(func(tx *bolt.Tx) error {
 		bucket, err := tx.CreateBucketIfNotExists(bucketName)
 		if err != nil {
@@ -215,30 +201,4 @@ func updateMetroStat(db *bolt.DB, ms metroStat) {
 	if err != nil {
 		log.Fatal(err)
 	}
-
-	// retrieve the data
-	// err = db.View(func(tx *bolt.Tx) error {
-	// 	bucket := tx.Bucket(bucketName)
-	// 	if bucket == nil {
-	// 		return fmt.Errorf("bucket not found: %q", bucketName)
-	// 	}
-
-	// 	val := bucket.Get(key)
-	// 	// fmt.Println("val:", string(val))
-
-	// 	var stat metroStat
-	// 	err := json.Unmarshal(val, &stat)
-	// 	if err != nil {
-	// 		fmt.Println("error:", err)
-	// 	}
-	// 	// fmt.Println("stats:", stats)
-	// 	// fmt.Printf("%+v\n", stat)
-	// 	spew.Dump(stat)
-
-	// 	return nil
-	// })
-
-	// if err != nil {
-	// 	log.Fatal(err)
-	// }
 }
