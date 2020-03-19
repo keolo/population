@@ -4,7 +4,7 @@
 
 ### Problem
 
-* Process population data so that we can retrieve population growth for a given zip code
+* Process population data so that we can retrieve population metadata for a given zip code
 * [Specification](docs/specification.md)
 
 ### Solution
@@ -22,11 +22,13 @@ Importer -> Server <- Client
 
 __Average Import Time (on my macbook pro): ~2s__
 
-[Importer](services/importer) is a Go service is used to concurrently extract, transform, and load data from two csv
+[Importer](services/importer) is a Go service used to concurrently extract, transform, and load data from two csv
 datasources (cbsa_to_msa.csv and zip_to_cbsa.csv) into an embeded key-value
 store (BoltDB) for later retrival.
 
-I wrote an originial brute force implementation in ruby which took around 30 minutes. I then optimized the performance by using Golang with concurrency to take the runtime to around 2 seconds on my MacBook Pro.
+I wrote an originial brute force implementation in ruby which took around 30 minutes in runtime. I then optimized the performance by using Golang with concurrency to take the runtime to around 2 seconds on my MacBook Pro.
+
+The import process results in a BoltDB database file size of only about 8MB.
 
 The importer persists data in the following schema:
 
@@ -76,3 +78,11 @@ It can be invoked via:
 
 [Mixpanel::Client](https://github.com/keolo/mixpanel_client) is an even more
 robust example of an API client that I've written in Ruby.
+
+## TODO
+
+After this concept has been tested and aproved, I would prioritize the following:
+
+* Add tests
+* Add quality checks
+* Add CI/CD
