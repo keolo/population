@@ -9,7 +9,7 @@
 
 ### Solution
 
-Importer -> Server <- Client
+Importer -> Server <-> Client
 
 * Create an Importer service to Extract, Transform, and Load population data
 * Create a Server service to retrieve population metadata for a given zip code
