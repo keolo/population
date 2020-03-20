@@ -22,15 +22,15 @@ consuming data. It consists of three seperate services:
 
 ### KPIs / Goals
 
-* Import processing time: < 5 minutes (**~2s actual**)
-* API request processing time: < 100ms (**~4ms actual**)
-* Autoscaling: true (**true acutal**)
-* Deployment workflow: 3 steps (**2 steps actual**)
-* Operational cost: < $10/mo (**$0 actual**)
+* Import processing time: < 5 minutes (**~2s actual!**)
+* API request processing time: < 100ms (**~4ms actual!**)
+* Autoscaling: true (**true acutal!**)
+* Deployment workflow: 3 steps (**2 steps actual!**)
+* Operational cost: < $10/mo (**$0 actual!**)
 
 ### How
 
-Dataflow: Importer -> Server <-> Client
+Data flow: **Importer -> Server <-> Client**
 
 * [Specification](docs/specification.md)
 * [Architecture](docs/architecture.md)
@@ -117,7 +117,7 @@ robust example of an API client that I've written in Ruby.
 
 ## TODO
 
-After this concept has been vetted and aproved, I would prioritize the following:
+After this proof of concept has been vetted and aproved, I would prioritize the following:
 
 * Add tests
 * Add CI/CD

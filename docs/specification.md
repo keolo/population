@@ -2,16 +2,16 @@
 
 ## Overview
 
-The use of publicly available data is crucial in helping make better decisions when underwriting real estate loans as well as complying with the requirements of some of our partners. In this project, you will use the US Government’s HUD & Census data to build a small API for retrieving population growth based on a zip code.
+The use of publicly available data is crucial in helping make better decisions when underwriting real estate loans as well as complying with the requirements of some of our partners. In this project, use the US Government’s HUD & Census data to build a small API for retrieving population growth based on a zip code.
 
 ## Input Data
 
-1. [Zip to CBSA (csv)](db/zip_to_cbsa.csv)
-1. [CBSA to MSA (csv)](db/cbsa_to_msa.csv)
+1. [Zip to CBSA (csv)](services/importer/db/zip_to_cbsa.csv)
+1. [CBSA to MSA (csv)](services/importer/db/cbsa_to_msa.csv)
 
 ## Examples
 
-*Note: the following is presented for readability, not as expected API output*
+_Note: the following is presented for readability, not as expected API output_
 
 ```yaml
 Zip: 90266
@@ -96,11 +96,11 @@ The schema is up to you.
 
 ## Ruby Client
 
-Make a Ruby client for accessing your API. The requirements for this are open-ended, so please use your own judgement. There is no right answer that we are looking for here as every approach has its pros and cons. You will have an opportunity to discuss your choices later during the onsite.
+Make a Ruby client for accessing the API. The requirements for this are open-ended, so please use your own judgement.
 
 ## Hosting
 
-Please deploy your code to the host of your choice and make its endpoint publicly available for us to evaluate.
+Please deploy your code to the host of your choice and make its endpoint publicly available for evaluation.
 
 ## Language selection
 
