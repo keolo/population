@@ -16,8 +16,8 @@ consuming data. It consists of three seperate services:
 
 ### Why
 
-* Demonstrate how to maximaize efficiency by using appropriate languages, infrastructure, and concurrency
-* Demonstrate an efficient and delightful development experience
+* Demonstrate how to maximize efficiency by using appropriate languages, infrastructure, and concurrency
+* Demonstrate a simple and delightful development experience
 * Highlight business value by demonstrating computational, and human process efficienies which result in on-demand and extremely low operational costs
 
 ### KPIs / Goals
@@ -30,10 +30,10 @@ consuming data. It consists of three seperate services:
 
 ### How
 
-Importer -> Server <-> Client
+Dataflow: Importer -> Server <-> Client
 
-* [Architecture](docs/architecture.md)
 * [Specification](docs/specification.md)
+* [Architecture](docs/architecture.md)
 
 ## Services
 
@@ -47,8 +47,8 @@ store (BoltDB) for later retrival.
 
 I wrote an originial brute force implementation in ruby which took around 30 minutes in runtime. I then optimized the performance by using Golang with concurrency to take the runtime to around 2 seconds on my MacBook Pro.
 
-The Importer service crunches through 40k+ zip codes and retrieves the
-correct population metadata for each.
+The Importer service crunches through 40k+ zip codes while retrieving the
+correct population metadata for each record.
 
 The import process results in a BoltDB database file size of only about 8MB.
 
@@ -101,9 +101,25 @@ It can be invoked via:
 [Mixpanel::Client](https://github.com/keolo/mixpanel_client) is an even more
 robust example of an API client that I've written in Ruby.
 
+## Stack
+
+* Application
+  * Ruby
+  * Go
+  * BoltDB
+* Infrastructure
+  * Cloud Run
+  * Container Registry
+* Workflow
+  * Github
+  * CodeClimate
+  * Cloud Build
+
 ## TODO
 
 After this concept has been vetted and aproved, I would prioritize the following:
 
 * Add tests
 * Add CI/CD
+* Refactor code
+* Clarify documentation
