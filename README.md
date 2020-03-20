@@ -4,19 +4,36 @@
 
 ## Project
 
-### Problem
+### What
 
-* Process population data so that we can retrieve population metadata for a given zip code
-* [Specification](docs/specification.md)
+This project demonstrates **an exponentially expensive** task of extracting, transforming, loading, and
+consuming data. It consists of three seperate services:
 
-### Solution
+* [Importer](services/importer): Extract, transform, and load population data from CSV files to
+  database
+* [Server](services/server): Retrieve and respond with population metadata for a given zip code
+* [Client](services/client): Consume Server API
+
+### Why
+
+* Demonstrate how to maximaize efficiency by using appropriate languages, infrastructure, and concurrency
+* Demonstrate an efficient and delightful development experience
+* Highlight business value by demonstrating computational, and human process efficienies which result in on-demand and extremely low operational costs
+
+### KPIs / Goals
+
+* Import processing time: < 5 minutes (**~2s actual**)
+* API request processing time: < 100ms (**~4ms actual**)
+* Autoscaling: true (**true acutal**)
+* Deployment workflow: 3 steps (**2 steps actual**)
+* Operational cost: < $10/mo (**$0 actual**)
+
+### How
 
 Importer -> Server <-> Client
 
-* Create an Importer service to Extract, Transform, and Load population data
-* Create a Server service to retrieve population metadata for a given zip code
-* Create a Client service to consume Server API
 * [Architecture](docs/architecture.md)
+* [Specification](docs/specification.md)
 
 ## Services
 
@@ -86,8 +103,7 @@ robust example of an API client that I've written in Ruby.
 
 ## TODO
 
-After this concept has been tested and aproved, I would prioritize the following:
+After this concept has been vetted and aproved, I would prioritize the following:
 
 * Add tests
-* Add quality checks
 * Add CI/CD
