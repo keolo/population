@@ -58,7 +58,7 @@ The importer persists data in the following schema:
 
 ## TODO
 
-* Add tests
-* Add this service to automated build process
-* Trigger build and deployment when new data/csv files get uploaded
-* Share `MetroStat` type between Importer and Server code
+* [ ] Add tests
+* [ ] Add this service to automated build process
+* [ ] Trigger build and deployment when new data/csv files get uploaded
+* [ ] Share `MetroStat` type between Importer and Server code

@@ -42,6 +42,6 @@ The public URL can be found here: https://server-7y3morjijq-uw.a.run.app/zip/900
 
 ## TODO
 
-* Add tests
-* Optimize Docker image by using `scratch` instead of `alpine`
-* Add CI/CD
+* [ ] Add tests
+* [ ] Optimize Docker image by using `scratch` instead of `alpine`
+* [ ] Add CI/CD
