@@ -69,7 +69,7 @@ transforming, loading, and consuming data.
 After this proof of concept has been vetted and approved, I would prioritize
 the following:
 
-* Add tests
-* Add CI/CD
-* Refactor code
-* Clarify documentation
+* [ ] Add tests
+* [ ] Add CI/CD
+* [ ] Refactor code
+* [ ] Clarify documentation
