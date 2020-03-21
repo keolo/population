@@ -32,6 +32,16 @@ consuming data. It consists of three separate services:
 
 Data flow: **Importer -> Server <-> Client**
 
+```text
++------------+        +------------+        +------------+
+|            |        |            |        |            |
+|            |        |            |        |            |
+|  Importer  --------->  Server    <-------->   Client   |
+|            |        |            |        |            |
+|            |        |            |        |            |
++------------+        +------------+        +------------+
+```
+
 * [Specification](docs/specification.md)
 * [Architecture](docs/architecture.md)
 
