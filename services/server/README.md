@@ -1,5 +1,18 @@
 # Server
 
+**Average Request Processing Time: ~5ms**
+
+Server is an HTTP service written in Go. It retrieves population
+growth metadata for a given zip and responds to the following endpoint:
+
+`GET /zip/{zip}`
+
+It is containerized and deployed to Google Cloud Run. The
+population database (created via the Importer service) is baked into the image
+when the container is built.
+
+The public URL can be found here: https://server-7y3morjijq-uw.a.run.app/zip/90065
+
 ## Functionality
 
 * BoltDB used as a high performance embedded key-value store
