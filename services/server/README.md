@@ -17,7 +17,7 @@ The public URL can be found here: https://server-7y3morjijq-uw.a.run.app/zip/900
 
 * BoltDB used as a high performance embedded key-value store
 * Database keys are zip codes and values are JSON encoded objects
-* Database is embedded in container image during build step
+* Database is added to container image during build step
 
 ## Benefits
 

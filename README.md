@@ -7,7 +7,7 @@
 ### What
 
 * Demonstrate **an exponentially expensive** task of extracting,
-transforming, loading, serving, and consuming data.
+transforming, loading, serving, and consuming data
 * [Specification](docs/specification.md)
 
 ### Why
