@@ -43,11 +43,11 @@ transforming, loading, serving, and consuming data.
 
 ### KPIs / Goals
 
-* Import processing time: < 5 minutes (**~2s actual!**)
-* API request processing time: < 100ms (**~4ms actual!**)
-* Autoscaling: true (**true actual!**)
-* Deployment steps: 3 (**2 actual!**)
-* Operational cost: < $10/mo (**$0 actual!**)
+* [x] Import processing time: < 5 minutes (**~2s actual!**)
+* [x] API request processing time: < 100ms (**~4ms actual!**)
+* [x] Autoscaling: true (**true actual!**)
+* [x] Deployment steps: 3 (**2 actual!**)
+* [x] Operational cost: < $10/mo (**$0 actual!**)
 
 ## Stack
 
