@@ -30,13 +30,13 @@ consuming data. It consists of three separate services:
 
 ### How
 
-Data flow: **Importer -> Server <-> Client**
+#### Data Flow
 
 ```text
 +------------+        +------------+        +------------+
 |            |        |            |        |            |
 |            |        |            |        |            |
-|  Importer  --------->  Server    <-------->   Client   |
+|  Importer  --------->   Server   <-------->   Client   |
 |            |        |            |        |            |
 |            |        |            |        |            |
 +------------+        +------------+        +------------+
