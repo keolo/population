@@ -127,13 +127,13 @@ robust example of an API client that I've written in Ruby.
   * Ruby
   * Go
   * BoltDB
-* **Infrastructure**
-  * Cloud Run
-  * Container Registry
-* **Workflow**
+* **Delivery**
   * Github
   * CodeClimate
   * Cloud Build
+  * Container Registry
+* **Infrastructure**
+  * Cloud Run
 
 ## TODO
 
