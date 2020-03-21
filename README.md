@@ -50,8 +50,6 @@ transforming, loading, and consuming data.
 * Deployment steps: 3 (**2 actual!**)
 * Operational cost: < $10/mo (**$0 actual!**)
 
----
-
 ## Stack
 
 * **Application**
@@ -65,8 +63,6 @@ transforming, loading, and consuming data.
   * Container Registry
 * **Infrastructure**
   * Cloud Run
-
----
 
 ## TODO
 
