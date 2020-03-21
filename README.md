@@ -11,7 +11,7 @@ transforming, loading, and consuming data. It consists of three separate
 services:
 
 * [Importer](services/importer): Extract, transform, and load population data
-  from CSV files to database
+  from CSV files to an embedded database
 * [Server](services/server): Retrieve and respond with population metadata for
   a given zip code
 * [Client](services/client): Consume Server API
@@ -26,7 +26,7 @@ services:
 +------------+        +------------+        +------------+
 ```
 
-Arrows signify flow of data.
+> _Arrows signify flow of data_
 
 ### Why
 
@@ -50,6 +50,8 @@ Arrows signify flow of data.
 * [Specification](docs/specification.md)
 * [Architecture](docs/architecture.md)
 
+---
+
 ## Services
 
 ### Importer
@@ -60,14 +62,13 @@ Arrows signify flow of data.
 transform, and load data from two CSV datasources (cbsa_to_msa.csv and
 zip_to_cbsa.csv) into an embedded key-value store (BoltDB) for later retrieval.
 
-I wrote an original brute force implementation in ruby which took around 30
+> Originally, I wrote a brute force implementation in ruby which took around 30
 minutes in runtime. I then optimized the performance by using Golang with
 concurrency to take the runtime to around 2 seconds on my MacBook Pro.
 
-The Importer service crunches through 40k+ zip codes while retrieving the
-correct population metadata for each record.
-
-The import process results in a BoltDB database file size of only about 8MB.
+* The Importer service crunches through 40k+ zip codes while retrieving the
+correct population metadata for each record
+* The import process results in a BoltDB database file size of only about 8MB
 
 The importer persists data in the following schema:
 
@@ -118,16 +119,18 @@ It can be invoked via:
 [Mixpanel::Client](https://github.com/keolo/mixpanel_client) is an even more
 robust example of an API client that I've written in Ruby.
 
+---
+
 ## Stack
 
-* Application
+* **Application**
   * Ruby
   * Go
   * BoltDB
-* Infrastructure
+* **Infrastructure**
   * Cloud Run
   * Container Registry
-* Workflow
+* **Workflow**
   * Github
   * CodeClimate
   * Cloud Build
