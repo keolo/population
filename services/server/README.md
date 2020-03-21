@@ -2,9 +2,9 @@
 
 ## Functionality
 
-* BoltDB used as a high performance embeded key-value store
+* BoltDB used as a high performance embedded key-value store
 * Database keys are zip codes and values are JSON encoded objects
-* Database is embeded in container image during build step
+* Database is embedded in container image during build step
 
 ## Benefits
 
