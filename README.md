@@ -7,7 +7,7 @@
 ### What
 
 * Demonstrate **an exponentially expensive** task of extracting,
-transforming, loading, and consuming data.
+transforming, loading, serving, and consuming data.
 * [Specification](docs/specification.md)
 
 ### Why
@@ -23,9 +23,8 @@ transforming, loading, and consuming data.
 
 * This project is organized into three distinct services
   * [Importer](services/importer): Extract, transform, and load population data
-    from CSV files to an embedded database
-  * [Server](services/server): Retrieve and respond with population metadata for
-    a given zip code
+    from CSV files into an embedded database
+  * [Server](services/server): For a given zip code, retrieve and respond with population metadata
   * [Client](services/client): Consume Server API
 
 ```text
