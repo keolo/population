@@ -55,9 +55,10 @@ transforming, loading, serving, and consuming data
   * Ruby
   * Go
   * BoltDB
-* **Delivery**
+* **Development**
   * Github
   * CodeClimate
+* **Delivery**
   * Cloud Build
   * Container Registry
 * **Infrastructure**
