@@ -11,7 +11,7 @@ It is containerized and deployed to Google Cloud Run. The
 population database (created via the Importer service) is baked into the image
 when the container is built.
 
-The public URL can be found here: https://server-7y3morjijq-uw.a.run.app/zip/90065
+The public URL can be found here: https://server.verrd.com/zip/90065
 
 ## Functionality
 

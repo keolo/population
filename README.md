@@ -71,4 +71,4 @@ the following:
 * [ ] Add tests
 * [ ] Add CI/CD
 * [ ] Refactor code
-* [ ] Clarify documentation
+* [x] Clarify documentation
